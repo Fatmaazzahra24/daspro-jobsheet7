@@ -1,38 +1,38 @@
 import java.util.Scanner;
+
 public class TiketBioskop05 {
-    
+
     public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    final int harga_Tiket = 50000;
-    int totalTiketTerjual = 0;
-    int totalHarga = 0;    
-    
-        while (true) {
-            System.out.print("Masukkan jumlah tiket yang dibeli (ketik 'selesai' untuk keluar): ");
-            String input = sc.next();
-            if (input.equalsIgnoreCase("selesai")) {
+        Scanner sc = new Scanner(System.in);
+        int jumlahtiket;
+        int totalpenjualantiket = 0;
+        int totalharga = 0;
+        int hargatiket = 50000;
+
+        while (true) { 
+            System.out.println("Masukkan jumlah tiket yang akan dibeli (atau -1 untuk keluar):");
+            jumlahtiket = sc.nextInt();
+
+            if (jumlahtiket == -1) {
                 break;
             }
-            if (!input.matches("\\d+")) {
-                System.out.println("Input tidak valid. Masukkan jumlah tiket yang valid.");
+
+            if (jumlahtiket < 0) {
+                System.out.println("Jumlah tiket tidak boleh negatif. Silakan coba lagi.");
                 continue;
             }
-            int jumlahTiket = Integer.parseInt(input);
-            if (jumlahTiket < 0) {
-                System.out.println("Jumlah tiket tidak valid.Masukkan kembali jumlah tiket.");
-                continue;
-            }
-            int hargaTiket = harga_Tiket * jumlahTiket;
-            if (jumlahTiket > 10) {
+            int hargaTiket = hargatiket * jumlahtiket;
+            if (jumlahtiket > 10) {
                 hargaTiket -= (hargaTiket * 0.15);
-            } else if (jumlahTiket > 4) {
-                hargaTiket -= (hargaTiket * 0.10);
+            } else if (jumlahtiket > 4) {
+                hargaTiket -= (hargaTiket * 0.10); 
             }
-            totalTiketTerjual += jumlahTiket;
-            totalHarga += hargaTiket;
-            System.out.println("Harga total untuk " + jumlahTiket + "tiket: Rp " + hargaTiket);
+            totalpenjualantiket += jumlahtiket;
+            totalharga += hargaTiket;
+
+            System.out.println("Harga total untuk " + jumlahtiket + " tiket: Rp " + hargaTiket);
         }
-        System.out.println("Total tiket terjual: " + totalTiketTerjual);
-        System.out.println("Total penjualan tiket: Rp " + totalHarga);
+        System.out.println("Total tiket terjual: " + totalpenjualantiket);
+        System.out.println("Total penjualan tiket: Rp " + totalharga);
     }
 }

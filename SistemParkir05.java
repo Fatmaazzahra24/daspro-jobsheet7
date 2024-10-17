@@ -3,9 +3,9 @@ public class SistemParkir05 {
     
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        final int tarifMobil = 3000;
-        final int tarifMotor = 2000;
-        final int tarif5jam = 12500;
+        int tarifMobil = 3000;
+        int tarifMotor = 2000;
+        int tarif5jam = 12500;
         int totalPembayaran = 0;
 
         while (true) {
@@ -37,7 +37,6 @@ public class SistemParkir05 {
             System.out.println("Biaya parkir untuk kendaraan: Rp " +
             biayaParkir);
         }
-        System.out.println("Total pembayaran parkir: Rp " +
-        totalPembayaran);
+        System.out.println("Total pembayaran parkir: Rp " + totalPembayaran);
     }
 }
